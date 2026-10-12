@@ -5,11 +5,10 @@
   inputs,
   ...
 }: {
-  env.DEVSHELL_NAME = "devshell | JAVA";
-  languages.java = {
+  env.DEVSHELL_NAME = "devshell | C#";
+  env.DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+  languages.dotnet = {
     enable = true;
-    jdk.package = pkgs.jdk25;
-    maven.enable = true;
-    gradle.enable = true;
+    package = pkgs.dotnet-sdk_10;
   };
 }

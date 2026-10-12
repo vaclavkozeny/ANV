@@ -12,3 +12,9 @@ devenv.local.yaml
 # idea
 .idea/
 target/
+
+
+# dotnet
+bin/
+obj/
+*.user
