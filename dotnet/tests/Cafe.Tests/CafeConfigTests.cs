@@ -8,14 +8,14 @@ public class CafeConfigTests
     [Fact]
     public void GetInstance_ReturnsNotNull()
     {
-        Assert.NotNull(CafeConfig.getInstance());
+        Assert.NotNull(CafeConfig.GetInstance());
     }
 
     [Fact]
     public void GetInstance_ReturnsSameInstanceOnRepeatedCalls()
     {
-        var first = CafeConfig.getInstance();
-        var second = CafeConfig.getInstance();
+        var first = CafeConfig.GetInstance();
+        var second = CafeConfig.GetInstance();
 
         Assert.Same(first, second);
     }
@@ -23,14 +23,14 @@ public class CafeConfigTests
     [Fact]
     public void GetCafeName_ReturnsCafe()
     {
-        Assert.Equal("cafe", CafeConfig.getInstance().getCafeName());
+        Assert.Equal("cafe", CafeConfig.GetInstance().getCafeName());
     }
 
     [Fact]
     public void GetCafeName_IsSameThroughDifferentReferences()
     {
-        var first = CafeConfig.getInstance();
-        var second = CafeConfig.getInstance();
+        var first = CafeConfig.GetInstance();
+        var second = CafeConfig.GetInstance();
 
         Assert.Equal(first.getCafeName(), second.getCafeName());
     }

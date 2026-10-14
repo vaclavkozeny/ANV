@@ -4,15 +4,15 @@ namespace Cafe;
 
 public class CafeConfig
 {
-    private string NAME = "cafe";
-    private static CafeConfig instance;
+    private const string NAME = "cafe";
+    private static CafeConfig _instance;
     private CafeConfig() {}
-    public static CafeConfig getInstance() {
-        if(instance != null)
-            return instance;
+    public static CafeConfig GetInstance() {
+        if(_instance != null)
+            return _instance;
         else{
-            instance = new CafeConfig();
-            return instance;
+            _instance = new CafeConfig();
+            return _instance;
         }
     }
 
