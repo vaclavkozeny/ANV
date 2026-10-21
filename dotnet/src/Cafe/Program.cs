@@ -8,19 +8,20 @@ public static class Program
     public static void Main(string[] args)
     {
         CafeConfig c = CafeConfig.GetInstance();
-        Console.WriteLine(c.getCafeName());
         DrinkFactory f = new DrinkFactory();
-        Console.WriteLine(f.CreateDrink(DrinkType.Tea).Serve() + " in " + c.getCafeName());
         CustomDrink drink = new CustomDrink.Builder(DrinkType.Tea)
             .Milk()
             .Sugar()
             .Caramel()
             .Build();
-        Console.WriteLine(drink);
 
-        CustomDrink simple = new CustomDrink.Builder(DrinkType.Coffe)
-            .Sugar()
-            .Build();
-        Console.WriteLine(simple);
+        OrderSubject o = new OrderSubject();
+        o.AddObserver(new EmployeeObserver("pepa","barista"));
+        o.AddObserver(new EmployeeObserver("marie","pokladní"));
+        string msg = $"{drink} in {c.getCafeName()}";
+        foreach (string notification in o.NotifyAll(msg))
+        {
+            Console.WriteLine(notification);
+        }
     }
 }
